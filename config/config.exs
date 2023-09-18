@@ -10,14 +10,14 @@ import Config
 config :chatgpt,
   title: "Elixir ChatGPT",
   # or gpt-3.5-turbo
-  model: "gpt-3.5-turbo",
-  enabled_models: ["gpt-3.5-turbo", "davinci"],
-  default_model: :"gpt-3.5-turbo",
+  model: "gpt-4-0613",
+  enabled_models: ["gpt-3.5-turbo", "davinci", "gpt-4-0613"],
+  default_model: :"gpt-4-0613",
   models: [
-    # %{
-    #   id: :gpt4,
-    #   truncate_tokens: 8000
-    # },
+    %{
+      id: :"gpt-4-0613",
+      truncate_tokens: 8000
+    },
     %{
       id: :"gpt-3.5-turbo",
       truncate_tokens: 4000
@@ -29,7 +29,7 @@ config :chatgpt,
   ],
   enable_google_oauth: true,
   restrict_email_domains: true,
-  allowed_email_domains: ["google.com"]
+  allowed_email_domains: ["gmail.com"]
 
 # Configures the endpoint
 config :chatgpt, ChatgptWeb.Endpoint,

@@ -221,6 +221,7 @@ defmodule Chatgpt.Openai do
     GenServer.start_link(__MODULE__, %{messages: msgs, settings: init_settings}, [])
   end
 
+  @spec send(atom | pid | {atom, any} | {:via, atom, any}, any, any, any) :: any
   def send(pid, msg, model, streamer_pid) do
     GenServer.call(pid, {:msg, msg, streamer_pid, model}, 100_000)
   end
